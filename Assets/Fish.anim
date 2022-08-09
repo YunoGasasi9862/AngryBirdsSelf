@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Character
+  m_Name: Fish
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 715278475, guid: 2d2b9383edf0bbc4cb0d5d74a8d17047, type: 3}
+      value: {fileID: -202695058, guid: c22e0070d54f6254aadadc3bc1d262a6, type: 3}
     - time: 0.083333336
-      value: {fileID: 1345693972, guid: 2d2b9383edf0bbc4cb0d5d74a8d17047, type: 3}
+      value: {fileID: -893319155, guid: c22e0070d54f6254aadadc3bc1d262a6, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 715278475, guid: 2d2b9383edf0bbc4cb0d5d74a8d17047, type: 3}
-    - {fileID: 1345693972, guid: 2d2b9383edf0bbc4cb0d5d74a8d17047, type: 3}
+    - {fileID: -202695058, guid: c22e0070d54f6254aadadc3bc1d262a6, type: 3}
+    - {fileID: -893319155, guid: c22e0070d54f6254aadadc3bc1d262a6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

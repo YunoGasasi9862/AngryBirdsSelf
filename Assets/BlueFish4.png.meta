@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2d2b9383edf0bbc4cb0d5d74a8d17047
+guid: c22e0070d54f6254aadadc3bc1d262a6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: seahorse-hippocampus-gutulatus-Sheet_0
+      name: BlueFish4_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 17
-        height: 32
+        x: 63
+        y: 1194
+        width: 1315
+        height: 933
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32bb2c09acfe3c14186c046c38820eaa
-      internalID: 715278475
+      spriteID: 0528415fa7a270b49959cf87158fbb7a
+      internalID: -202695058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seahorse-hippocampus-gutulatus-Sheet_1
+      name: BlueFish4_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 0
-        width: 17
-        height: 32
+        x: 61
+        y: 172
+        width: 1315
+        height: 867
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42f01880e9d63ad4ba5227231c3d5bc9
-      internalID: 1345693972
+      spriteID: 86dbefb0f1d1d7943b6bf6f657bda20e
+      internalID: -893319155
       vertices: []
       indices: 
       edges: []
@@ -168,8 +168,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      seahorse-hippocampus-gutulatus-Sheet_0: 715278475
-      seahorse-hippocampus-gutulatus-Sheet_1: 1345693972
+      BlueFish4_1: -893319155
+      BlueFish4_0: -202695058
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
