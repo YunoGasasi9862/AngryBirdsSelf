@@ -8,7 +8,7 @@ public class Fish : MonoBehaviour
     Rigidbody2D rb;
     Vector3 initialPos;
     Camera cam;
-
+    [SerializeField] float Thrust = 40f;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -27,6 +27,9 @@ public class Fish : MonoBehaviour
     private void OnMouseUp()
     {
         sprite.color = Color.white;
+        Vector2 directiontoFollow = initialPos - transform.position;
+        rb.AddForce(directiontoFollow * Thrust);
+        rb.gravityScale = 1;
     }
 
     private void OnMouseDrag()
