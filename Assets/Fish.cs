@@ -9,6 +9,8 @@ public class Fish : MonoBehaviour
     Vector3 initialPos;
     Camera cam;
     [SerializeField] float Thrust = 40f;
+    [SerializeField] float timespent = 0;
+    bool _birdisLaunched;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -18,6 +20,21 @@ public class Fish : MonoBehaviour
     private void Start()
     {
         initialPos = transform.position;
+    }
+
+    private void Update()
+    {
+
+        if(_birdisLaunched && rb.velocity.magnitude <=0.1)
+        {
+            timespent += Time.deltaTime;
+        }
+
+          if(transform.position.x> 13 || transform.position.x <-13
+            || transform.position.y >10 || transform.position.y <-10 )
+        {
+
+        }
     }
     private void OnMouseDown()
     {
@@ -30,6 +47,7 @@ public class Fish : MonoBehaviour
         Vector2 directiontoFollow = initialPos - transform.position;
         rb.AddForce(directiontoFollow * Thrust);
         rb.gravityScale = 1;
+        _birdisLaunched = true;
     }
 
     private void OnMouseDrag()
