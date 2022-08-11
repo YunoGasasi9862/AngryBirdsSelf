@@ -11,11 +11,14 @@ public class Fish : MonoBehaviour
     [SerializeField] float Thrust = 40f;
     [SerializeField] float timespent = 0;
     bool _birdisLaunched;
+
+    public GameManager gamemanager;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
+        gamemanager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
     }
     private void Start()
     {
@@ -31,9 +34,9 @@ public class Fish : MonoBehaviour
         }
 
           if(transform.position.x> 13 || transform.position.x <-13
-            || transform.position.y >10 || transform.position.y <-10 )
+            || transform.position.y >10 || transform.position.y <-10 || timespent > 3)
         {
-
+            gamemanager.GameOver();
         }
     }
     private void OnMouseDown()
