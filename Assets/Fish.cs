@@ -23,10 +23,13 @@ public class Fish : MonoBehaviour
     private void Start()
     {
         initialPos = transform.position;
+        _birdisLaunched = false;
     }
 
     private void Update()
     {
+        GetComponent<LineRenderer>().SetPosition(0, transform.position);
+        GetComponent<LineRenderer>().SetPosition(1, initialPos);
 
         if(_birdisLaunched && rb.velocity.magnitude <=0.1)
         {
