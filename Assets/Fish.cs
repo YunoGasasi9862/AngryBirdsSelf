@@ -13,12 +13,14 @@ public class Fish : MonoBehaviour
     bool _birdisLaunched;
 
     public GameManager gamemanager;
+    LineRenderer lr;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
         gamemanager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        lr = GetComponent<LineRenderer>();
     }
     private void Start()
     {
@@ -28,8 +30,8 @@ public class Fish : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<LineRenderer>().SetPosition(0, transform.position);
-        GetComponent<LineRenderer>().SetPosition(1, initialPos);
+        lr.SetPosition(0, transform.position); //the line renderer should render from transform to the initial position, thats why 0 to 1
+        lr.SetPosition(1, initialPos );
 
         if(_birdisLaunched && rb.velocity.magnitude <=0.1)
         {
@@ -45,6 +47,7 @@ public class Fish : MonoBehaviour
     private void OnMouseDown()
     {
         sprite.color = Color.green;
+        lr.enabled = true;
     }
 
     private void OnMouseUp()
@@ -54,12 +57,13 @@ public class Fish : MonoBehaviour
         rb.AddForce(directiontoFollow * Thrust);
         rb.gravityScale = 1;
         _birdisLaunched = true;
+        lr.enabled = false;
     }
 
     private void OnMouseDrag()
     {
-        Vector3 newposition = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(newposition.x, newposition.y);
+        Vector3 DragtoLocation = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(DragtoLocation.x, DragtoLocation.y);
 
     }
 }
