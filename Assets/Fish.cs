@@ -38,8 +38,8 @@ public class Fish : MonoBehaviour
             timespent += Time.deltaTime;
         }
 
-          if(transform.position.x> 13 || transform.position.x <-13
-            || transform.position.y >10 || transform.position.y <-10 || timespent > 3)
+          if(transform.position.x> 50 || transform.position.x <-50
+            || transform.position.y >50 || transform.position.y <-50 || timespent > 3)
         {
             gamemanager.GameOver();
         }
@@ -62,8 +62,8 @@ public class Fish : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector3 DragtoLocation = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(DragtoLocation.x, DragtoLocation.y);
+        Vector3 dragtoLocation = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(dragtoLocation.x, dragtoLocation.y);
 
     }
 }

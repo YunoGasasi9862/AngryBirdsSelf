@@ -13,11 +13,11 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.collider.GetComponent<Enemy>())
-        {
-            return; //if the two enemy collides, dont DO ANYTHING!!!
-        }
 
+         if(collision.collider.GetComponent<Enemy>())
+        {
+            return;
+        }
         if(collision.GetContact(0).normal.y <=0.5) //that is the box
         {
             Destroy(gameObject);
