@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class Fish : MonoBehaviour
 {
     SpriteRenderer sprite;
@@ -12,6 +12,7 @@ public class Fish : MonoBehaviour
     [SerializeField] float timespent = 0;
     bool _birdisLaunched;
 
+    public CinemachineVirtualCamera camera;
     public GameManager gamemanager;
     LineRenderer lr;
     private void Awake()
@@ -26,6 +27,7 @@ public class Fish : MonoBehaviour
     {
         initialPos = transform.position;
         _birdisLaunched = false;
+        camera.m_Lens.OrthographicSize = 2f;
     }
 
     private void Update()
