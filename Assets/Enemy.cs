@@ -5,11 +5,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-
+    public GameObject Animation;
     private void OnCollisionEnter2D(Collision2D collision)
     {
          if(collision.collider.GetComponent<Fish>())
         {
+            Instantiate(Animation, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
@@ -19,7 +20,10 @@ public class Enemy : MonoBehaviour
         }
         if(collision.GetContact(0).normal.y <=0.5) //that is the box
         {
+            Instantiate(Animation, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
+
         }
     }
 }

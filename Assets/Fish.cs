@@ -33,7 +33,7 @@ public class Fish : MonoBehaviour
         lr.SetPosition(0, transform.position); //the line renderer should render from transform to the initial position, thats why 0 to 1
         lr.SetPosition(1, initialPos );
 
-        if(_birdisLaunched && rb.velocity.magnitude <=0.1)
+          if(_birdisLaunched && rb.velocity.magnitude <=0.1)
         {
             timespent += Time.deltaTime;
         }
