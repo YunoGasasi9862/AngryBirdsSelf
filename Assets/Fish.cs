@@ -12,9 +12,10 @@ public class Fish : MonoBehaviour
     [SerializeField] float timespent = 0;
     bool _birdisLaunched;
 
-    public CinemachineVirtualCamera camera;
+    public CinemachineVirtualCamera cae;
     public GameManager gamemanager;
     LineRenderer lr;
+    bool onmouseDown = false;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -27,45 +28,63 @@ public class Fish : MonoBehaviour
     {
         initialPos = transform.position;
         _birdisLaunched = false;
-        camera.m_Lens.OrthographicSize = 2f;
+        cae.m_Lens.OrthographicSize = 20f;
     }
 
     private void Update()
     {
         lr.SetPosition(0, transform.position); //the line renderer should render from transform to the initial position, thats why 0 to 1
-        lr.SetPosition(1, initialPos );
+        lr.SetPosition(1, initialPos);
 
-          if(_birdisLaunched && rb.velocity.magnitude <=0.1)
+        if (_birdisLaunched && rb.velocity.magnitude <= 0.1)
         {
             timespent += Time.deltaTime;
         }
+
 
           if(transform.position.x> 50 || transform.position.x <-50
             || transform.position.y >50 || transform.position.y <-50 || timespent > 3)
         {
             gamemanager.GameOver();
         }
+
+        if (cae.m_Lens.OrthographicSize >= 5.2f && onmouseDown==false)
+        {
+            cae.m_Lens.OrthographicSize -= .01f;
+        }
+
+        if (onmouseDown == true)
+        {
+            if (cae.m_Lens.OrthographicSize <= 20f)
+            {
+                cae.m_Lens.OrthographicSize += 0.01f;
+            }
+        }
     }
     private void OnMouseDown()
     {
         sprite.color = Color.green;
         lr.enabled = true;
+        onmouseDown = true;
+
+
     }
 
     private void OnMouseUp()
     {
         sprite.color = Color.white;
-        Vector2 directiontoFollow = initialPos - transform.position;
+        Vector3 directiontoFollow = initialPos-transform.position;
         rb.AddForce(directiontoFollow * Thrust);
         rb.gravityScale = 1;
         _birdisLaunched = true;
         lr.enabled = false;
+        onmouseDown = false;
     }
 
     private void OnMouseDrag()
     {
-        Vector3 dragtoLocation = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(dragtoLocation.x, dragtoLocation.y);
+        Vector3 dragtoFollow = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(dragtoFollow.x, dragtoFollow.y);
 
     }
 }

@@ -5926,7 +5926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Thrust: 150
   timespent: 0
-  camera: {fileID: 1258188420}
+  cae: {fileID: 1258188420}
   gamemanager: {fileID: 0}
 --- !u!60 &1042654150
 PolygonCollider2D:
