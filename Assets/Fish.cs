@@ -16,6 +16,7 @@ public class Fish : MonoBehaviour
     public GameManager gamemanager;
     LineRenderer lr;
     bool onmouseDown = false;
+    AudioSource whosh;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -23,6 +24,7 @@ public class Fish : MonoBehaviour
         cam = Camera.main;
         gamemanager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         lr = GetComponent<LineRenderer>();
+        whosh = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -77,6 +79,7 @@ public class Fish : MonoBehaviour
         rb.AddForce(directiontoFollow * Thrust);
         rb.gravityScale = 1;
         _birdisLaunched = true;
+        whosh.Play();
         lr.enabled = false;
         onmouseDown = false;
     }
