@@ -38,7 +38,7 @@ public class Fish : MonoBehaviour
         lr.SetPosition(0, transform.position); //the line renderer should render from transform to the initial position, thats why 0 to 1
         lr.SetPosition(1, initialPos);
 
-        if (_birdisLaunched && rb.velocity.magnitude <= 0.1)
+        if(_birdisLaunched && rb.velocity.magnitude <=0.1)
         {
             timespent += Time.deltaTime;
         }
@@ -57,7 +57,7 @@ public class Fish : MonoBehaviour
 
         if (onmouseDown == true)
         {
-            if (cae.m_Lens.OrthographicSize <= 20f)
+            if (cae.m_Lens.OrthographicSize <= 15f)
             {
                 cae.m_Lens.OrthographicSize += 0.01f;
             }
@@ -86,8 +86,13 @@ public class Fish : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector3 dragtoFollow = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(dragtoFollow.x, dragtoFollow.y);
+        Vector3 dragToFollow = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(dragToFollow.x, dragToFollow.y);
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
 
     }
 }

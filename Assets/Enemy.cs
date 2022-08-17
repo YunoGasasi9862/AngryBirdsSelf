@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
+
         if(collision.GetContact(0).normal.y <=0.5) //that is the box
         {
             Instantiate(Animation, transform.position, Quaternion.identity);
