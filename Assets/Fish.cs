@@ -17,6 +17,12 @@ public class Fish : MonoBehaviour
     LineRenderer lr;
     bool onmouseDown = false;
     AudioSource whosh;
+
+    GameObject background;
+    Transform Right;
+    Transform Left;
+    Transform Top;
+    Transform Bottom;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -25,6 +31,10 @@ public class Fish : MonoBehaviour
         gamemanager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         lr = GetComponent<LineRenderer>();
         whosh = GetComponent<AudioSource>();
+
+        background = GameObject.Find("Background");
+        Right = background.transform.GetChild(0);
+
     }
     private void Start()
     {
@@ -86,13 +96,13 @@ public class Fish : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector3 dragToFollow = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(dragToFollow.x, dragToFollow.y);
+        Vector3 dragtoFollow = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(dragtoFollow.x, dragtoFollow.y);
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        
     }
 }

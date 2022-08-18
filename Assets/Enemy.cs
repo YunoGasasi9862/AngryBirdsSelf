@@ -19,12 +19,10 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        if(collision.GetContact(0).normal.y <=0.5) //that is the box
+        if(collision.GetContact(0).normal.y <=0.5)
         {
             Instantiate(Animation, transform.position, Quaternion.identity);
-
             Destroy(gameObject);
-
         }
     }
 }
