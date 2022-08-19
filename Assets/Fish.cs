@@ -34,6 +34,9 @@ public class Fish : MonoBehaviour
 
         background = GameObject.Find("Background");
         Right = background.transform.GetChild(0);
+        Left = background.transform.GetChild(1);
+        Top = background.transform.GetChild(2);
+        Bottom = background.transform.GetChild(3);
 
     }
     private void Start()
@@ -48,11 +51,10 @@ public class Fish : MonoBehaviour
         lr.SetPosition(0, transform.position); //the line renderer should render from transform to the initial position, thats why 0 to 1
         lr.SetPosition(1, initialPos);
 
-        if(_birdisLaunched && rb.velocity.magnitude <=0.1)
+        if (_birdisLaunched && rb.velocity.magnitude<= 0.1)
         {
             timespent += Time.deltaTime;
         }
-
 
           if(transform.position.x> 50 || transform.position.x <-50
             || transform.position.y >50 || transform.position.y <-50 || timespent > 3)
@@ -85,8 +87,8 @@ public class Fish : MonoBehaviour
     private void OnMouseUp()
     {
         sprite.color = Color.white;
-        Vector3 directiontoFollow = initialPos-transform.position;
-        rb.AddForce(directiontoFollow * Thrust);
+        Vector3 followDirection = initialPos - transform.position;
+        rb.AddForce(followDirection * Thrust);
         rb.gravityScale = 1;
         _birdisLaunched = true;
         whosh.Play();
@@ -99,10 +101,24 @@ public class Fish : MonoBehaviour
         Vector3 dragtoFollow = cam.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector2(dragtoFollow.x, dragtoFollow.y);
 
+        if(transform.position.x > Right.position.x)
+        {
+            transform.position = new Vector2(Right.position.x -2, transform.position.y);  //this keeps the bird inbound hopefully      
+        }
+
+        if (transform.position.x < Left.position.x)
+        {
+            transform.position = new Vector2(Left.position.x+2, transform.position.y);  //this keeps the bird inbound hopefully      
+        }
+        if (transform.position.y < Bottom.position.y)
+        {
+            transform.position = new Vector2(transform.position.x, Bottom.position.y + 2);  //this keeps the bird inbound hopefully      
+        }
+        if (transform.position.y > Top.position.y)
+        {
+            transform.position = new Vector2(transform.position.x, Bottom.position.y -2);  //this keeps the bird inbound hopefully      
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
+ 
 }
