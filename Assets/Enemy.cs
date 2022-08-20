@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        if(collision.GetContact(0).normal.y <=0.5)
+        if(collision.GetContact(0).normal.y <=0.5) //if anything falls directly on the head
         {
             Instantiate(Animation, transform.position, Quaternion.identity);
             Destroy(gameObject);

@@ -48,8 +48,12 @@ public class Fish : MonoBehaviour
 
     private void Update()
     {
-        lr.SetPosition(0, transform.position); //the line renderer should render from transform to the initial position, thats why 0 to 1
+        //lr.SetPosition(0, transform.position); //the line renderer should render from transform to the initial position, thats why 0 to 1
+        //lr.SetPosition(1, initialPos);
+
+        lr.SetPosition(0, transform.position);
         lr.SetPosition(1, initialPos);
+
 
         if (_birdisLaunched && rb.velocity.magnitude<= 0.1)
         {
@@ -62,18 +66,8 @@ public class Fish : MonoBehaviour
             gamemanager.GameOver();
         }
 
-        if (cae.m_Lens.OrthographicSize >= 5.2f && onmouseDown==false)
-        {
-            cae.m_Lens.OrthographicSize -= .01f;
-        }
+        SizeUpCamera();
 
-        if (onmouseDown == true)
-        {
-            if (cae.m_Lens.OrthographicSize <= 15f)
-            {
-                cae.m_Lens.OrthographicSize += 0.01f;
-            }
-        }
     }
     private void OnMouseDown()
     {
@@ -87,8 +81,8 @@ public class Fish : MonoBehaviour
     private void OnMouseUp()
     {
         sprite.color = Color.white;
-        Vector3 followDirection = initialPos - transform.position;
-        rb.AddForce(followDirection * Thrust);
+        Vector3 directionToFollow = initialPos - transform.position;
+        rb.AddForce(directionToFollow * Thrust);
         rb.gravityScale = 1;
         _birdisLaunched = true;
         whosh.Play();
@@ -101,14 +95,20 @@ public class Fish : MonoBehaviour
         Vector3 dragtoFollow = cam.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector2(dragtoFollow.x, dragtoFollow.y);
 
-        if(transform.position.x > Right.position.x)
+        checkBounds();
+    }
+
+
+    void checkBounds()
+    {
+        if (transform.position.x > Right.position.x)
         {
-            transform.position = new Vector2(Right.position.x -2, transform.position.y);  //this keeps the bird inbound hopefully      
+            transform.position = new Vector2(Right.position.x - 2, transform.position.y);  //this keeps the bird inbound hopefully      
         }
 
         if (transform.position.x < Left.position.x)
         {
-            transform.position = new Vector2(Left.position.x+2, transform.position.y);  //this keeps the bird inbound hopefully      
+            transform.position = new Vector2(Left.position.x + 2, transform.position.y);  //this keeps the bird inbound hopefully      
         }
         if (transform.position.y < Bottom.position.y)
         {
@@ -116,9 +116,25 @@ public class Fish : MonoBehaviour
         }
         if (transform.position.y > Top.position.y)
         {
-            transform.position = new Vector2(transform.position.x, Bottom.position.y -2);  //this keeps the bird inbound hopefully      
+            transform.position = new Vector2(transform.position.x, Top.position.y - 2);  //this keeps the bird inbound hopefully      
         }
     }
-
  
+
+    void SizeUpCamera()
+    {
+
+        if (cae.m_Lens.OrthographicSize >= 5.2f && onmouseDown == false)
+        {
+            cae.m_Lens.OrthographicSize -= .01f;
+        }
+
+        if (onmouseDown == true)
+        {
+            if (cae.m_Lens.OrthographicSize <= 15f)
+            {
+                cae.m_Lens.OrthographicSize += 0.01f;
+            }
+        }
+    }
 }
