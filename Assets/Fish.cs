@@ -43,7 +43,7 @@ public class Fish : MonoBehaviour
     {
         initialPos = transform.position;
         _birdisLaunched = false;
-        cae.m_Lens.OrthographicSize = 20f;
+       // cae.m_Lens.OrthographicSize = 20f;
     }
 
     private void Update()
@@ -55,7 +55,7 @@ public class Fish : MonoBehaviour
         lr.SetPosition(1, initialPos);
 
 
-        if (_birdisLaunched && rb.velocity.magnitude<= 0.1)
+        if(_birdisLaunched && rb.velocity.magnitude <=0.1)
         {
             timespent += Time.deltaTime;
         }
@@ -66,7 +66,7 @@ public class Fish : MonoBehaviour
             gamemanager.GameOver();
         }
 
-        SizeUpCamera();
+       // SizeUpCamera();
 
     }
     private void OnMouseDown()
@@ -121,20 +121,20 @@ public class Fish : MonoBehaviour
     }
  
 
-    void SizeUpCamera()
-    {
+    //void SizeUpCamera()
+    //{
 
-        if (cae.m_Lens.OrthographicSize >= 5.2f && onmouseDown == false)
-        {
-            cae.m_Lens.OrthographicSize -= .01f;
-        }
+    //    if (cae.m_Lens.OrthographicSize >= 5.2f && onmouseDown == false)
+    //    {
+    //        cae.m_Lens.OrthographicSize -= .01f;
+    //    }
 
-        if (onmouseDown == true)
-        {
-            if (cae.m_Lens.OrthographicSize <= 15f)
-            {
-                cae.m_Lens.OrthographicSize += 0.01f;
-            }
-        }
-    }
+    //    if (onmouseDown == true)
+    //    {
+    //        if (cae.m_Lens.OrthographicSize <= 15f)
+    //        {
+    //            cae.m_Lens.OrthographicSize += 0.01f;
+    //        }
+    //    }
+    //}
 }
