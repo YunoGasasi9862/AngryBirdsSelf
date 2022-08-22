@@ -15,7 +15,6 @@ public class Fish : MonoBehaviour
     public CinemachineVirtualCamera cae;
     public GameManager gamemanager;
     LineRenderer lr;
-    bool onmouseDown = false;
     AudioSource whosh;
 
     GameObject background;
@@ -43,7 +42,7 @@ public class Fish : MonoBehaviour
     {
         initialPos = transform.position;
         _birdisLaunched = false;
-       // cae.m_Lens.OrthographicSize = 20f;
+        // cae.m_Lens.OrthographicSize = 20f;
     }
 
     private void Update()
@@ -55,25 +54,24 @@ public class Fish : MonoBehaviour
         lr.SetPosition(1, initialPos);
 
 
-        if(_birdisLaunched && rb.velocity.magnitude <=0.1)
+        if (_birdisLaunched && rb.velocity.magnitude <= 0.1)
         {
             timespent += Time.deltaTime;
         }
 
-          if(transform.position.x> 50 || transform.position.x <-50
-            || transform.position.y >50 || transform.position.y <-50 || timespent > 3)
+        if (transform.position.x > 50 || transform.position.x < -50
+          || transform.position.y > 50 || transform.position.y < -50 || timespent > 3)
         {
             gamemanager.GameOver();
         }
 
-       // SizeUpCamera();
+        // SizeUpCamera();
 
     }
     private void OnMouseDown()
     {
         sprite.color = Color.green;
         lr.enabled = true;
-        onmouseDown = true;
 
 
     }
@@ -87,7 +85,6 @@ public class Fish : MonoBehaviour
         _birdisLaunched = true;
         whosh.Play();
         lr.enabled = false;
-        onmouseDown = false;
     }
 
     private void OnMouseDrag()
@@ -119,22 +116,7 @@ public class Fish : MonoBehaviour
             transform.position = new Vector2(transform.position.x, Top.position.y - 2);  //this keeps the bird inbound hopefully      
         }
     }
- 
 
-    //void SizeUpCamera()
-    //{
 
-    //    if (cae.m_Lens.OrthographicSize >= 5.2f && onmouseDown == false)
-    //    {
-    //        cae.m_Lens.OrthographicSize -= .01f;
-    //    }
 
-    //    if (onmouseDown == true)
-    //    {
-    //        if (cae.m_Lens.OrthographicSize <= 15f)
-    //        {
-    //            cae.m_Lens.OrthographicSize += 0.01f;
-    //        }
-    //    }
-    //}
 }

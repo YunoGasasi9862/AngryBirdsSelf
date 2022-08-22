@@ -404,7 +404,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_Targets:
   - target: {fileID: 1042654148}
-    weight: 0
+    weight: 2
     radius: 0
   - target: {fileID: 1363233655}
     weight: 0
@@ -8042,7 +8042,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.4082903, y: 1}
+    m_SensorSize: {x: 1.4067358, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
