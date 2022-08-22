@@ -8042,7 +8042,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.4062177, y: 1}
+    m_SensorSize: {x: 1.4082903, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8079,7 +8079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3953ef59eff73b542be9269a65b20631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fish: {fileID: 0}
+  Fish: {fileID: 1042654145}
 --- !u!1 &1293750177
 GameObject:
   m_ObjectHideFlags: 0
