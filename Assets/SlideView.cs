@@ -7,7 +7,7 @@ public class SlideView : MonoBehaviour
 {
 
     CinemachineVirtualCamera cam;
-    [SerializeField] GameObject Fish;
+    [SerializeField] Transform Fish;
     CinemachineTransposer transposer;
 
     private void Awake()
@@ -22,18 +22,18 @@ public class SlideView : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
        while(transposer.m_FollowOffset.x>0)
         {
-            float x;
-            float y;
 
-            x = Fish.transform.position.x;
-            y = Fish.transform.position.y;
+            transposer.m_FollowOffset.x -= 0.002f * Time.deltaTime;
 
-            transposer.m_FollowOffset = new Vector3(0,0, -10);
-          
+        }
+        while (transposer.m_FollowOffset.y < 0)
+        {
+
+            transposer.m_FollowOffset.y += 0.002f * Time.deltaTime;
 
         }
     }
