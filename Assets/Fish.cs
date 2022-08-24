@@ -54,7 +54,7 @@ public class Fish : MonoBehaviour
         lr.SetPosition(1, initialPos);
 
 
-        if (_birdisLaunched && rb.velocity.magnitude <= 0.1)
+         if(_birdisLaunched && rb.velocity.magnitude <=0.1)
         {
             timespent += Time.deltaTime;
         }

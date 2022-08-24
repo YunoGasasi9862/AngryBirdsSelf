@@ -24,17 +24,6 @@ public class SlideView : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-       while(transposer.m_FollowOffset.x>0)
-        {
-
-            transposer.m_FollowOffset.x -= 0.002f * Time.deltaTime;
-
-        }
-        while (transposer.m_FollowOffset.y < 0)
-        {
-
-            transposer.m_FollowOffset.y += 0.002f * Time.deltaTime;
-
-        }
+      
     }
 }
