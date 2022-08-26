@@ -79,8 +79,8 @@ public class Fish : MonoBehaviour
     private void OnMouseUp()
     {
         sprite.color = Color.white;
-        Vector3 directionToFollow = initialPos - transform.position;
-        rb.AddForce(directionToFollow * Thrust);
+        Vector3 directiontoFollow = initialPos - transform.position;
+        rb.AddForce(directiontoFollow * Thrust);
         rb.gravityScale = 1;
         _birdisLaunched = true;
         whosh.Play();
@@ -100,20 +100,20 @@ public class Fish : MonoBehaviour
     {
         if (transform.position.x > Right.position.x)
         {
-            transform.position = new Vector2(Right.position.x - 2, transform.position.y);  //this keeps the bird inbound hopefully      
+            transform.position = new Vector2(Right.position.x - 2, transform.position.y);  //this keeps the bird inbound hopefully
         }
 
         if (transform.position.x < Left.position.x)
         {
-            transform.position = new Vector2(Left.position.x + 2, transform.position.y);  //this keeps the bird inbound hopefully      
+            transform.position = new Vector2(Left.position.x + 2, transform.position.y);  //this keeps the bird inbound hopefully
         }
         if (transform.position.y < Bottom.position.y)
         {
-            transform.position = new Vector2(transform.position.x, Bottom.position.y + 2);  //this keeps the bird inbound hopefully      
+            transform.position = new Vector2(transform.position.x, Bottom.position.y + 2);  //this keeps the bird inbound hopefully
         }
         if (transform.position.y > Top.position.y)
         {
-            transform.position = new Vector2(transform.position.x, Top.position.y - 2);  //this keeps the bird inbound hopefully      
+            transform.position = new Vector2(transform.position.x, Top.position.y - 2);  //this keeps the bird inbound hopefully
         }
     }
 
