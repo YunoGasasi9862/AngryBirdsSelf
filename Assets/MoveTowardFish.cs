@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class MoveTowardFish : MonoBehaviour
 {
     [SerializeField] Transform Fish;
     Rigidbody2D rb;
     [SerializeField] bool Allow = true;
+    [SerializeField] CinemachineVirtualCamera cam;
     void Start()
     {
         Fish = GameObject.FindObjectOfType<Fish>().GetComponent<Transform>();
@@ -16,8 +18,9 @@ public class MoveTowardFish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cam.m_Lens.OrthographicSize = 5f;
 
-        if(Allow)
+        if (Allow)
         {
             Vector3 FollowDirection = Fish.position - transform.position;
             rb.AddForce(FollowDirection * Time.deltaTime);
