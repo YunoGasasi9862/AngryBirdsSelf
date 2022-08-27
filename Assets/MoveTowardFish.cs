@@ -9,21 +9,31 @@ public class MoveTowardFish : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] bool Allow = true;
     [SerializeField] CinemachineVirtualCamera cam;
+    [SerializeField] GameObject targetgroup;
+    private void Awake()
+    {
+        cam.m_Lens.OrthographicSize = 5f;
+    }
     void Start()
     {
         Fish = GameObject.FindObjectOfType<Fish>().GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        cam.m_Lens.OrthographicSize = 5f;
+         if(cam.m_Lens.OrthographicSize <= 10f)
+        {
+            cam.m_Lens.OrthographicSize +=1f * Time.deltaTime;
+        }
+
 
         if (Allow)
         {
             Vector3 FollowDirection = Fish.position - transform.position;
-            rb.AddForce(FollowDirection * Time.deltaTime);
+            rb.AddForce(FollowDirection * 3f* Time.deltaTime);
         }
 
     }
@@ -37,6 +47,9 @@ public class MoveTowardFish : MonoBehaviour
             velocity.x = 0f;
             velocity.y = 0f;
             rb.velocity = velocity;
+
+            cam.m_Follow = targetgroup.transform;
+
 
         }
     }
