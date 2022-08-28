@@ -79,8 +79,8 @@ public class Fish : MonoBehaviour
     private void OnMouseUp()
     {
         sprite.color = Color.white;
-        Vector3 directiontoFollow = initialPos - transform.position;
-        rb.AddForce(directiontoFollow * Thrust);
+        Vector3 follow = initialPos - transform.position;
+        rb.AddForce(follow * Thrust);
         rb.gravityScale = 1;
         _birdisLaunched = true;
         whosh.Play();
