@@ -89,8 +89,10 @@ public class Fish : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector3 dragtoFollow = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(dragtoFollow.x, dragtoFollow.y);
+
+        Vector3 dragToFollow = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(dragToFollow.x, dragToFollow.y);
+
         checkBounds();
     }
 

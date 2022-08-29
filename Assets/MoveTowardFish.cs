@@ -32,8 +32,8 @@ public class MoveTowardFish : MonoBehaviour
 
         if (Allow)
         {
-            Vector3 followtoPlayer = Fish.position - transform.position;
-            rb.AddForce(followtoPlayer * 3f * Time.deltaTime);
+            Vector3 movetoFish = Fish.position - transform.position;
+            rb.AddForce(movetoFish * 3f * Time.deltaTime);
         }
 
     }
@@ -50,6 +50,7 @@ public class MoveTowardFish : MonoBehaviour
 
             //the moment the inivisble object touches the fish, change the target object!!
             cam.m_Follow = targetgroup.transform;
+
 
 
         }
