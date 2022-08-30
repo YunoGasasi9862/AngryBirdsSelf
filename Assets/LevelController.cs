@@ -1,23 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
 
     [SerializeField] Enemy[] _enemies; //array of all the available enemies
 
-    void Update()
-    {
-        foreach(Enemy enemy in _enemies)  //for every enemy stashed in the array
-        {
-
-        }
-
-    }
 
     private void OnEnable() //when the script gets enabled
     {
-        _enemies = FindObjectsOfType<Enemy>(); //find all the objects not a single one
+        _enemies = FindObjectsOfType<Enemy>(); //all of them and store in the arrray
     }
+    void Update()
+    {
+        foreach(Enemy enemy in _enemies)
+        {
+
+            if(enemy!=null)
+            {
+
+                return;
+                //if the enemies are still there, dont do anything
+            }
+
+        }
+
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentLevel + 1); //will always load the next level :))
+
+
+    }
+
 }

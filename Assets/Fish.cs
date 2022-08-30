@@ -53,8 +53,7 @@ public class Fish : MonoBehaviour
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, initialPos);
 
-
-         if(_birdisLaunched && rb.velocity.magnitude <=0.1)
+         if(_birdisLaunched && rb.velocity.magnitude<=0.1)
         {
             timespent += Time.deltaTime;
         }
@@ -79,6 +78,7 @@ public class Fish : MonoBehaviour
     private void OnMouseUp()
     {
         sprite.color = Color.white;
+
         Vector3 follow = initialPos - transform.position;
         rb.AddForce(follow * Thrust);
         rb.gravityScale = 1;
