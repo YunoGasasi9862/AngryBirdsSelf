@@ -15,16 +15,14 @@ public class LevelController : MonoBehaviour
     }
     void Update()
     {
+
         foreach(Enemy enemy in _enemies)
         {
 
             if(enemy!=null)
             {
-
                 return;
-                //if the enemies are still there, dont do anything
             }
-
         }
 
         int currentLevel = SceneManager.GetActiveScene().buildIndex;

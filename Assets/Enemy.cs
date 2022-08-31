@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.collider.GetComponent<Enemy>())
+       if(collision.collider.GetComponent<Enemy>())
         {
             return;
         }

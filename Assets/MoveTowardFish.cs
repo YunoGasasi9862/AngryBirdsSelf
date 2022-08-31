@@ -30,12 +30,11 @@ public class MoveTowardFish : MonoBehaviour
         }
 
 
-        if(Allow)
+         if(Allow)
         {
             Vector3 followFish = Fish.position - transform.position;
             rb.AddForce(followFish * 3f * Time.deltaTime);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
