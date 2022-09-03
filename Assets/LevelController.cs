@@ -15,10 +15,8 @@ public class LevelController : MonoBehaviour
     }
     void Update()
     {
-
         foreach(Enemy enemy in _enemies)
         {
-
             if(enemy!=null)
             {
                 return;
@@ -26,7 +24,8 @@ public class LevelController : MonoBehaviour
         }
 
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentLevel + 1); //will always load the next level :))
+        SceneManager.LoadScene(currentLevel + 1);
+
 
 
     }
