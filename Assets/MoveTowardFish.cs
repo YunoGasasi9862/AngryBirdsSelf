@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using Cinemachine;
 
@@ -30,10 +29,10 @@ public class MoveTowardFish : MonoBehaviour
         }
 
 
-         if(Allow)
+        if(Allow)
         {
-            Vector3 followFish = Fish.position - transform.position;
-            rb.AddForce(followFish * 3f * Time.deltaTime);
+            Vector3 follow = Fish.position - transform.position;
+            rb.AddForce(follow * 3f * Time.deltaTime);
         }
     }
 
