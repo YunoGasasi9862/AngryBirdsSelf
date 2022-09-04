@@ -9,15 +9,16 @@ public class LevelController : MonoBehaviour
     [SerializeField] Enemy[] _enemies; //array of all the available enemies
 
 
-    private void OnEnable() //when the script gets enabled
+    private void OnEnable()
     {
-        _enemies = FindObjectsOfType<Enemy>(); //all of them and store in the arrray
+        _enemies = FindObjectsOfType<Enemy>();
     }
     void Update()
     {
-            foreach(Enemy enemy in _enemies)
+
+        foreach( Enemy enemy in _enemies)
         {
-            if(enemy!=null)
+            if(enemy != null)
             {
                 return;
             }
