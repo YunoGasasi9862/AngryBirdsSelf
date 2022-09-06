@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
-         if(collision.GetContact(0).normal.y <=0.5)
+        if(collision.GetContact(0).normal.y <=0.5f)
         {
             Instantiate(Animation, transform.position, Quaternion.identity);
             Destroy(gameObject);

@@ -28,10 +28,10 @@ public class MoveTowardFish : MonoBehaviour
             cam.m_Lens.OrthographicSize +=1f * Time.deltaTime;
         }
 
-       if(Allow)
+        if(Allow)
         {
-            Vector3 followFish = Fish.position - transform.position;
-            rb.AddForce(followFish * 3f * Time.deltaTime);
+            Vector3 fishgoing = Fish.position - transform.position;
+            rb.AddForce(fishgoing * 3f * Time.deltaTime);
         }
     }
 
