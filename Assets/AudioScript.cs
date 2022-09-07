@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class AudioScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] GameObject GlideVoice;
+    [SerializeField] GameObject ClickVoice;
+
+
+    public void playAudio1()
     {
-        
+       GameObject audio= Instantiate(GlideVoice, transform.position, Quaternion.identity);
+        Destroy(audio, 1f);
+    }
+      
+    
+    public void playAudio2()
+    {
+        GameObject audio = Instantiate(ClickVoice, transform.position, Quaternion.identity);
+        Destroy(audio, 1f);
     }
 }

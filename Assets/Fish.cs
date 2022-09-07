@@ -81,6 +81,7 @@ public class Fish : MonoBehaviour
 
         Vector3 follow = initialPos - transform.position;
         rb.AddForce(follow * Thrust);
+
         rb.gravityScale = 1;
         _birdisLaunched = true;
         whosh.Play();

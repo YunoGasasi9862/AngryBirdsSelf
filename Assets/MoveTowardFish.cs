@@ -30,9 +30,11 @@ public class MoveTowardFish : MonoBehaviour
 
         if(Allow)
         {
-            Vector3 fishgoing = Fish.position - transform.position;
-            rb.AddForce(fishgoing * 3f * Time.deltaTime);
+            Vector3 moveTowardFish = Fish.position - transform.position;
+            rb.AddForce(moveTowardFish * 3f * Time.deltaTime);
+
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
