@@ -47,8 +47,7 @@ public class Fish : MonoBehaviour
 
     private void Update()
     {
-        //lr.SetPosition(0, transform.position); //the line renderer should render from transform to the initial position, thats why 0 to 1
-        //lr.SetPosition(1, initialPos);
+       
 
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, initialPos);
@@ -91,8 +90,8 @@ public class Fish : MonoBehaviour
     private void OnMouseDrag()
     {
 
-        Vector3 dragoToFollow = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(dragoToFollow.x, dragoToFollow.y);
+        Vector3 dragToFollow = cam.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector2(dragToFollow.x, dragToFollow.y);
 
         checkBounds();
     }

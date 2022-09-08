@@ -30,9 +30,8 @@ public class MoveTowardFish : MonoBehaviour
 
         if(Allow)
         {
-            Vector3 moveTowardFish = Fish.position - transform.position;
-            rb.AddForce(moveTowardFish * 3f * Time.deltaTime);
-
+            Vector3 followFish = Fish.position - transform.position;
+            rb.AddForce(followFish * 3f * Time.deltaTime);
         }
 
     }
