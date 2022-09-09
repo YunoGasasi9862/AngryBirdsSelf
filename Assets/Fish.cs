@@ -52,7 +52,7 @@ public class Fish : MonoBehaviour
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, initialPos);
 
-       if(_birdisLaunched && rb.velocity.magnitude <=0.1f)
+       if(_birdisLaunched && rb.velocity.magnitude <=.1f)
         {
             timespent += Time.deltaTime;
         }

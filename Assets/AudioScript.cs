@@ -11,7 +11,7 @@ public class AudioScript : MonoBehaviour
 
     public void playAudio1()
     {
-       GameObject audio= Instantiate(GlideVoice, transform.position, Quaternion.identity);
+        GameObject audio = Instantiate(GlideVoice, transform.position, Quaternion.identity);
         Destroy(audio, 1f);
     }
       

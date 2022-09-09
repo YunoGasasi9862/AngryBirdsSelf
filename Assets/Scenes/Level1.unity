@@ -6029,6 +6029,7 @@ GameObject:
   - component: {fileID: 394211400}
   - component: {fileID: 394211399}
   - component: {fileID: 394211401}
+  - component: {fileID: 394211402}
   m_Layer: 0
   m_Name: Catapult
   m_TagString: Untagged
@@ -6121,6 +6122,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afa96b00419b6c4b9da39c32ed66bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strips:
+  - {fileID: 1319211929}
+  - {fileID: 1412908681}
+  stripPositions:
+  - {fileID: 283395186}
+  - {fileID: 99147063}
+  center: {fileID: 1400916860}
+  idlePos: {fileID: 1247788186}
+--- !u!61 &394211402
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394211398}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.76, y: 5.1}
+    newSize: {x: 1.76, y: 5.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.76, y: 5.1}
+  m_EdgeRadius: 0
 --- !u!1 &430377081
 GameObject:
   m_ObjectHideFlags: 0
@@ -8492,7 +8527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3953ef59eff73b542be9269a65b20631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fish: {fileID: 1042654148}
 --- !u!1 &1293750177
 GameObject:
   m_ObjectHideFlags: 0
@@ -8730,7 +8764,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -8754,9 +8788,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.08235294, g: 0.04705883, b: 0.039215688, a: 1}
+      key1: {r: 0.09854671, g: 0.06387544, b: 0.056170706, a: 1}
+      key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -8764,7 +8798,7 @@ LineRenderer:
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -8787,7 +8821,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &1320895959
 GameObject:
@@ -9529,7 +9563,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -9553,9 +9587,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.14117648, g: 0.0627451, b: 0.04705883, a: 1}
+      key1: {r: 0.14117648, g: 0.0627451, b: 0.04705883, a: 1}
+      key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -9563,7 +9597,7 @@ LineRenderer:
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -9586,7 +9620,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1 &1524590842
 GameObject:
