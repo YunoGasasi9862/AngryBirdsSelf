@@ -12,6 +12,10 @@ public class SlingShot : MonoBehaviour
     Camera cam;
 
     bool isMouseDown;
+    
+     Vector3 currentPos;
+
+    [SerializeField] float maxlength;
     private void Awake()
     {
         cam = Camera.main;
@@ -30,9 +34,8 @@ public class SlingShot : MonoBehaviour
     void Start()
 
     {
-
-        strips[0].SetPosition(0, stripPositions[0].position);
-        strips[1].SetPosition(0, stripPositions[1].position); //setting the first positions of the line renderer
+        strips[0].SetPosition(0, stripPositions[0].transform.position);
+        strips[1].SetPosition(0, stripPositions[1].transform.position);
 
 
         strips[0].SetPosition(1, idlePos.position);
@@ -48,17 +51,21 @@ public class SlingShot : MonoBehaviour
         {
             Vector3 MousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            MousePos.z = 10; //making sure that its the front
+            MousePos.z = 10;
 
-            strips[0].SetPosition(1, MousePos);
-            strips[1].SetPosition(1, MousePos);
+            currentPos = MousePos;
+
+
+            currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);
+
+            strips[0].SetPosition(1, currentPos);
+            strips[1].SetPosition(1, currentPos);
 
         }
         else
         {
             strips[0].SetPosition(1, idlePos.position);
             strips[1].SetPosition(1, idlePos.position);
-
         }
 
 

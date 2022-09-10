@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Windows.Speech;
 
 public class MoveTowardFish : MonoBehaviour
 {
@@ -30,10 +31,9 @@ public class MoveTowardFish : MonoBehaviour
 
         if(Allow)
         {
-            Vector3 MoveTowardFish = Fish.position - transform.position;
-            rb.AddForce(MoveTowardFish * 3f * Time.deltaTime); //slowly
+            Vector3 Fishtoward = Fish.position - transform.position; //find a vector in that direction
+            rb.AddForce(Fishtoward * 3f * Time.deltaTime);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
