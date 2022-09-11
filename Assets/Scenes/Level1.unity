@@ -6130,6 +6130,7 @@ MonoBehaviour:
   - {fileID: 99147063}
   center: {fileID: 1400916860}
   idlePos: {fileID: 1247788186}
+  Fish: {fileID: 1042654145}
   maxlength: 5
 --- !u!61 &394211402
 BoxCollider2D:
@@ -7553,11 +7554,11 @@ GameObject:
   - component: {fileID: 1042654148}
   - component: {fileID: 1042654147}
   - component: {fileID: 1042654146}
-  - component: {fileID: 1042654149}
   - component: {fileID: 1042654151}
   - component: {fileID: 1042654150}
   - component: {fileID: 1042654152}
   - component: {fileID: 1042654153}
+  - component: {fileID: 1042654154}
   m_Layer: 0
   m_Name: BlueFish4_0
   m_TagString: Fish
@@ -7652,22 +7653,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1042654149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042654145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd90b1bcb07f1ba48b4602d3d368b71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Thrust: 150
-  timespent: 0
-  cae: {fileID: 1258188420}
-  gamemanager: {fileID: 0}
 --- !u!60 &1042654150
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8104,6 +8089,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1042654154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042654145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b5b4ad7ca32c54a9418710c28a1a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1116594096
 GameObject:
   m_ObjectHideFlags: 0
@@ -8454,7 +8451,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1258188421}
   - component: {fileID: 1258188420}
-  - component: {fileID: 1258188422}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -8491,7 +8487,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.1278929, y: 1}
+    m_SensorSize: {x: 1.1412911, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8516,18 +8512,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1258188422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1258188419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3953ef59eff73b542be9269a65b20631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1293750177
 GameObject:
   m_ObjectHideFlags: 0

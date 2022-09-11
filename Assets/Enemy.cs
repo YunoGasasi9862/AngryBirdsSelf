@@ -14,12 +14,13 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
         
-        if(collision.collider.GetComponent<Enemy>())
+     if(collision.collider.GetComponent<Enemy>())
         {
-
             return;
         }
-        if(collision.GetContact(0).normal.y <=0.5f)
+
+        if(collision.GetContact(0).normal.y <=0.5)
+
         {
             Instantiate(Animation, transform.position, Quaternion.identity);
             Destroy(gameObject);

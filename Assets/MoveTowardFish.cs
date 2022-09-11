@@ -16,7 +16,7 @@ public class MoveTowardFish : MonoBehaviour
     }
     void Start()
     {
-        Fish = GameObject.FindObjectOfType<Fish>().GetComponent<Transform>();
+        Fish = GameObject.FindObjectOfType<FisMovement>().GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -29,10 +29,10 @@ public class MoveTowardFish : MonoBehaviour
             cam.m_Lens.OrthographicSize +=1f * Time.deltaTime;
         }
 
-        if(Allow)
+       if(Allow)
         {
-            Vector3 Fishtoward = Fish.position - transform.position; //find a vector in that direction
-            rb.AddForce(Fishtoward * 3f * Time.deltaTime);
+            Vector3 MovetowardFish = Fish.position - transform.position;
+            rb.AddForce(MovetowardFish * 3f * Time.deltaTime);
         }
     }
 

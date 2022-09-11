@@ -16,8 +16,7 @@ public class LevelController : MonoBehaviour
     void Update()
     {
       
-
-        foreach(Enemy enemy in _enemies)
+       foreach(Enemy enemy in _enemies)
         {
             if(enemy!=null)
             {
