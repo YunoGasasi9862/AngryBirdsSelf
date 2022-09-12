@@ -12,6 +12,9 @@ public class SlingShot : MonoBehaviour
 
 
     [SerializeField] GameObject Fish;
+    [SerializeField] Rigidbody2D FishRigid;
+
+    [SerializeField] float speed = 50f;
 
     Camera cam;
 
@@ -24,16 +27,25 @@ public class SlingShot : MonoBehaviour
     {
         cam = Camera.main;
         Fish = GameObject.FindGameObjectWithTag("Fish");
+        FishRigid = Fish.GetComponent<Rigidbody2D>();
     }
 
     private void OnMouseDown()
     {
         isMouseDown = true;
+
+      
+
+
     }
 
     private void OnMouseUp()
     {
         isMouseDown = false;
+        Vector3 move = center.position - Fish.transform.position;
+        FishRigid.AddForce(move * speed);
+        FishRigid.gravityScale = 1;
+
     }
 
     void Start()
@@ -41,6 +53,7 @@ public class SlingShot : MonoBehaviour
     {
         strips[0].SetPosition(0, stripPositions[0].transform.position);
         strips[1].SetPosition(0, stripPositions[1].transform.position);
+
 
 
         strips[0].SetPosition(1, idlePos.position);
@@ -60,8 +73,7 @@ public class SlingShot : MonoBehaviour
 
             currentPos = MousePos;
 
-
-            currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);  //this formula clamps the slingshot to that point
+            currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);
 
             strips[0].SetPosition(1, currentPos);
             strips[1].SetPosition(1, currentPos);
@@ -74,7 +86,7 @@ public class SlingShot : MonoBehaviour
             strips[0].SetPosition(1, idlePos.position);
             strips[1].SetPosition(1, idlePos.position);
 
-            Fish.GetComponent<Rigidbody2D>().AddForce(new Vector3(Fish.transform.position - idlePos)));
+            
         }
 
 
