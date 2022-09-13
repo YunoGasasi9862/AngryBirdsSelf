@@ -5,12 +5,9 @@ using Cinemachine;
 public class Fish : MonoBehaviour
 {
     SpriteRenderer sprite;
-    Rigidbody2D rb;
-    Vector3 initialPos;
     Camera cam;
-    [SerializeField] float Thrust = 40f;
-    [SerializeField] float timespent = 0;
-    bool _birdisLaunched;
+
+  
 
     public CinemachineVirtualCamera cae;
     public GameManager gamemanager;
@@ -25,7 +22,7 @@ public class Fish : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+        
         cam = Camera.main;
         gamemanager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         lr = GetComponent<LineRenderer>();
@@ -38,27 +35,16 @@ public class Fish : MonoBehaviour
         Bottom = background.transform.GetChild(3);
 
     }
-    private void Start()
-    {
-        initialPos = transform.position;
-        _birdisLaunched = false;
-        // cae.m_Lens.OrthographicSize = 20f;
-    }
+   
 
     private void Update()
     {
+    
+
        
 
-        lr.SetPosition(0, transform.position);
-        lr.SetPosition(1, initialPos);
-
-       if(_birdisLaunched && rb.velocity.magnitude <=0.1f)
-        {
-            timespent += Time.deltaTime;
-        }
-
         if (transform.position.x > 50 || transform.position.x < -50
-          || transform.position.y > 50 || transform.position.y < -50 || timespent > 3)
+          || transform.position.y > 50 || transform.position.y < -50)
         {
             gamemanager.GameOver();
         }
@@ -77,20 +63,12 @@ public class Fish : MonoBehaviour
     private void OnMouseUp()
     {
         sprite.color = Color.white;
-
-        Vector3 follow = initialPos - transform.position;
-        rb.AddForce(follow * Thrust);
-
-        rb.gravityScale = 1;
-        _birdisLaunched = true;
         whosh.Play();
         lr.enabled = false;
     }
 
     private void OnMouseDrag()
     {
-        Vector3 Follow = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(Follow.x, Follow.y);
 
         checkBounds();
     }

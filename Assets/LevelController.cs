@@ -20,7 +20,7 @@ public class LevelController : MonoBehaviour
             if(enemy!=null)
             {
                 return;
-            }
+            }    
         }
 
         int currentLevel = SceneManager.GetActiveScene().buildIndex;

@@ -1,4 +1,5 @@
 using Cinemachine.Utility;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,15 @@ public class SlingShot : MonoBehaviour
     [SerializeField] GameObject Fish;
     [SerializeField] Rigidbody2D FishRigid;
 
-    [SerializeField] float speed = 50f;
+    [SerializeField] float speed;
+
+    [SerializeField] bool _birdisLaunched;
+
+
+    [SerializeField] float timespent = 0;
+
+
+    [SerializeField] GameManager gamemanager;
 
     Camera cam;
 
@@ -28,6 +37,8 @@ public class SlingShot : MonoBehaviour
         cam = Camera.main;
         Fish = GameObject.FindGameObjectWithTag("Fish");
         FishRigid = Fish.GetComponent<Rigidbody2D>();
+        _birdisLaunched = false;
+        gamemanager = GameObject.FindObjectOfType<GameManager>();
     }
 
     private void OnMouseDown()
@@ -35,8 +46,6 @@ public class SlingShot : MonoBehaviour
         isMouseDown = true;
 
       
-
-
     }
 
     private void OnMouseUp()
@@ -46,6 +55,9 @@ public class SlingShot : MonoBehaviour
         FishRigid.AddForce(move * speed);
         FishRigid.gravityScale = 1;
 
+        //change the rotation
+        FishRigid.freezeRotation = false;
+        _birdisLaunched = true;
     }
 
     void Start()
@@ -67,11 +79,11 @@ public class SlingShot : MonoBehaviour
     {
         if(isMouseDown)
         {
-            Vector3 MousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            MousePos.z = 10;
+            mousePos.z = 10;
 
-            currentPos = MousePos;
+            currentPos = mousePos;
 
             currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);
 
@@ -89,6 +101,17 @@ public class SlingShot : MonoBehaviour
             
         }
 
+
+        if (_birdisLaunched && FishRigid.velocity.magnitude<= 0.1f)
+        {
+            timespent += Time.deltaTime;
+        }
+
+
+        if(timespent >3f)
+        {
+            gamemanager.GameOver();
+        }
 
     }
 }
