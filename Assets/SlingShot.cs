@@ -25,6 +25,8 @@ public class SlingShot : MonoBehaviour
 
     [SerializeField] GameManager gamemanager;
 
+    [SerializeField] AudioSource whosh;
+
     Camera cam;
 
     bool isMouseDown;
@@ -44,6 +46,7 @@ public class SlingShot : MonoBehaviour
     private void OnMouseDown()
     {
         isMouseDown = true;
+        Fish.GetComponent<SpriteRenderer>().color = Color.red;
 
       
     }
@@ -58,6 +61,9 @@ public class SlingShot : MonoBehaviour
         //change the rotation
         FishRigid.freezeRotation = false;
         _birdisLaunched = true;
+        Fish.GetComponent<SpriteRenderer>().color = Color.white;
+
+        whosh.Play();
     }
 
     void Start()
@@ -79,13 +85,13 @@ public class SlingShot : MonoBehaviour
     {
         if(isMouseDown)
         {
-            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            mousePos.z = 10;
+            mousepos.z = 10;
 
-            currentPos = mousePos;
+            currentPos = mousepos;
 
-            currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);
+            currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);  //this clamps the currentpos at a max length from the center, and then the strip only gets rendered to that points only
 
             strips[0].SetPosition(1, currentPos);
             strips[1].SetPosition(1, currentPos);
@@ -102,11 +108,10 @@ public class SlingShot : MonoBehaviour
         }
 
 
-        if (_birdisLaunched && FishRigid.velocity.magnitude<= 0.1f)
+        if(_birdisLaunched && FishRigid.velocity.magnitude<=0.1f)
         {
             timespent += Time.deltaTime;
         }
-
 
         if(timespent >3f)
         {
