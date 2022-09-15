@@ -28,10 +28,11 @@ public class MoveTowardFish : MonoBehaviour
         {
             cam.m_Lens.OrthographicSize +=1f * Time.deltaTime;
         }
-           if(Allow)
+        
+         if(Allow)
         {
-            Vector2 follow = Fish.position - transform.position;
-            rb.AddForce(follow * 3f * Time.deltaTime);
+            Vector3 move = Fish.position - transform.position;
+            rb.AddForce(move * 3f * Time.deltaTime);
         }
     }
 
@@ -47,7 +48,6 @@ public class MoveTowardFish : MonoBehaviour
 
             //the moment the inivisble object touches the fish, change the target object!!
             cam.m_Follow = targetgroup.transform;
-
 
 
         }

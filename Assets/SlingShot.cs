@@ -74,8 +74,8 @@ public class SlingShot : MonoBehaviour
 
 
 
-        strips[0].SetPosition(1, idlePos.position);
         strips[1].SetPosition(1, idlePos.position);
+        strips[0].SetPosition(1, idlePos.position);
 
     }
 
@@ -85,13 +85,13 @@ public class SlingShot : MonoBehaviour
     {
         if(isMouseDown)
         {
-            Vector3 mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 MousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            mousepos.z = 10;
 
-            currentPos = mousepos;
+            MousePos.z = 10;
+            currentPos = MousePos;
 
-            currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);  //this clamps the currentpos at a max length from the center, and then the strip only gets rendered to that points only
+            currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);//this clamps the currentpos at a max length from the center, and then the strip only gets rendered to that points only
 
             strips[0].SetPosition(1, currentPos);
             strips[1].SetPosition(1, currentPos);
