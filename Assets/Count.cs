@@ -5,6 +5,7 @@ using UnityEngine;
 public class Count : MonoBehaviour
 {
     [SerializeField] LevelController controller;
+
     void Start()
     {
         controller = FindObjectOfType<LevelController>();
