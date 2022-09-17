@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Enemy : MonoBehaviour
 {
 
     public GameObject Animation;
+
+
+ 
+ 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       if(collision.collider.GetComponent<Fish>())
+        if (collision.collider.GetComponent<Fish>())
         {
+
+        
             Instantiate(Animation, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -18,8 +25,9 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
-        if(collision.GetContact(0).normal.y <=0.5)
+        if(collision.GetContact(0).normal.y <=0.5f)
         {
+           
             Instantiate(Animation, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

@@ -423,7 +423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54323971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.89, y: -11.83, z: 0}
+  m_LocalPosition: {x: -10.65, y: -11.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 114033528}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6099,7 +6099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394211398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.05, y: -13.5, z: 0}
+  m_LocalPosition: {x: -10.809999, y: -13.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6419,7 +6419,7 @@ GameObject:
   - component: {fileID: 442980989}
   m_Layer: 0
   m_Name: Enemy (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7789,6 +7789,7 @@ GameObject:
   - component: {fileID: 1042654150}
   - component: {fileID: 1042654152}
   - component: {fileID: 1042654153}
+  - component: {fileID: 1042654154}
   m_Layer: 0
   m_Name: BlueFish4_0
   m_TagString: Fish
@@ -7876,7 +7877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042654145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.89, y: -11.83, z: 0}
+  m_LocalPosition: {x: -10.65, y: -11.83, z: 0}
   m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8319,6 +8320,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1042654154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042654145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd90b1bcb07f1ba48b4602d3d368b71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cae: {fileID: 0}
+  gamemanager: {fileID: 0}
+  score: 5000
 --- !u!1 &1116594096
 GameObject:
   m_ObjectHideFlags: 0
@@ -8705,7 +8721,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.1644336, y: 1}
+    m_SensorSize: {x: 1.1666666, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -9438,7 +9454,7 @@ GameObject:
   - component: {fileID: 1363233656}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9904,7 +9920,6 @@ GameObject:
   - component: {fileID: 1484255794}
   - component: {fileID: 1484255793}
   - component: {fileID: 1484255792}
-  - component: {fileID: 1484255795}
   m_Layer: 5
   m_Name: ScoreCount
   m_TagString: Untagged
@@ -10049,19 +10064,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484255790}
   m_CullTransparentMesh: 1
---- !u!114 &1484255795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484255790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82676f092ac58df49a10704681a4b9f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
 --- !u!1 &1524590842
 GameObject:
   m_ObjectHideFlags: 0

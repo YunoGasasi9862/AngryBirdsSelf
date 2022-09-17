@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SocialPlatforms.Impl;
+
 public class Fish : MonoBehaviour
 {
  
 
-    public CinemachineVirtualCamera cae;
     public GameManager gamemanager;
+    [SerializeField] int score = 5000;
   
     private void Awake()
     {
@@ -31,9 +33,19 @@ public class Fish : MonoBehaviour
         // SizeUpCamera();
 
     }
- 
 
-   
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.GetComponent<Enemy>())
+        {
+            score += 5000;
+            Debug.Log(score);
+        }
+    }
+
+
 
 
 }

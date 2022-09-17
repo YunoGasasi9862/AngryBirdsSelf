@@ -85,12 +85,11 @@ public class SlingShot : MonoBehaviour
     {
         if(isMouseDown)
         {
-            Vector3 MousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
+            mousePos.z = 10;
 
-            MousePos.z = 10;
-
-            currentPos = MousePos;
+            currentPos = mousePos;
 
             currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);
 
@@ -98,7 +97,6 @@ public class SlingShot : MonoBehaviour
             strips[1].SetPosition(1, currentPos);
 
             Fish.transform.position = currentPos;
-
         }
         else
         {
