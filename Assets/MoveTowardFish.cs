@@ -10,9 +10,11 @@ public class MoveTowardFish : MonoBehaviour
     [SerializeField] bool Allow = true;
     [SerializeField] CinemachineVirtualCamera cam;
     [SerializeField] GameObject targetgroup;
+    Camera camera;
     private void Awake()
     {
         cam.m_Lens.OrthographicSize = 5f;
+        camera = Camera.main;
     }
     void Start()
     {
@@ -28,12 +30,14 @@ public class MoveTowardFish : MonoBehaviour
         {
             cam.m_Lens.OrthographicSize +=1f * Time.deltaTime;
         }
+   
         
-      if(Allow)
+        if(Allow)
         {
             Vector3 move = Fish.position - transform.position;
             rb.AddForce(move * 3f * Time.deltaTime);
         }
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

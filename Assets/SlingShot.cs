@@ -85,11 +85,11 @@ public class SlingShot : MonoBehaviour
     {
         if(isMouseDown)
         {
-            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 Mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            mousePos.z = 10;
+            Mousepos.z = 10;
 
-            currentPos = mousePos;
+            currentPos = Mousepos;
 
             currentPos = center.position + Vector3.ClampMagnitude(currentPos - center.position, maxlength);
 
@@ -97,6 +97,7 @@ public class SlingShot : MonoBehaviour
             strips[1].SetPosition(1, currentPos);
 
             Fish.transform.position = currentPos;
+
         }
         else
         {
@@ -107,7 +108,7 @@ public class SlingShot : MonoBehaviour
         }
 
 
-        if(_birdisLaunched && FishRigid.velocity.magnitude <=0.1f)  //if the speed has slowed down, start counting!
+         if(_birdisLaunched && FishRigid.velocity.magnitude<=0.1f)
         {
             timespent += Time.deltaTime;
         }

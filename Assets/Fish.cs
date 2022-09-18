@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
-using UnityEngine.SocialPlatforms.Impl;
+using TMPro;
 
 public class Fish : MonoBehaviour
 {
  
 
     public GameManager gamemanager;
-    [SerializeField] int score = 5000;
+    public float score = 0;
+    [SerializeField] TextMeshProUGUI scoreText;
   
     private void Awake()
     {
@@ -32,6 +32,7 @@ public class Fish : MonoBehaviour
 
         // SizeUpCamera();
 
+        scoreText.text = "SCORE: " + score;
     }
 
 
@@ -40,7 +41,7 @@ public class Fish : MonoBehaviour
     {
         if(collision.collider.GetComponent<Enemy>())
         {
-            score += 5000;
+            score += 5000 * 1.1f;
             Debug.Log(score);
         }
     }

@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
 
     public GameObject Animation;
 
+    [SerializeField] Fish Fish;
 
- 
- 
+    private void Start()
+    {
+        Fish = FindObjectOfType<Fish>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.GetComponent<Fish>())
@@ -21,7 +26,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
         
-        if(collision.collider.GetComponent<Enemy>())
+      if(collision.collider.GetComponent<Enemy>())
         {
             return;
         }
@@ -29,6 +34,7 @@ public class Enemy : MonoBehaviour
         {
            
             Instantiate(Animation, transform.position, Quaternion.identity);
+            Fish.score += 5000 * 1.1f;
             Destroy(gameObject);
         }
     }

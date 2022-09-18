@@ -17,17 +17,12 @@ public class LevelController : MonoBehaviour
     {
 
        
-        foreach(Enemy enemy in _enemies)
+           foreach (Enemy enemy in _enemies)
         {
-            
- 
-            if (enemy != null)
+            if(enemy!=null)
             {
                 return;
             }
-
-
-
         }
       
 
